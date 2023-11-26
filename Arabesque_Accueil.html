@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang ="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Arabesque</title>
+    <link rel="stylesheet" type="text/css" href="Arabesque.css">
+</head>
+
+
+<body> 
+<!--EN-TETE-->
+  <table class="header">
+    <tbody>
+      <tr>
+        <td width="30%"></td>
+        <td><a href="Arabesque_Accueil.html">
+          <img src="./Photos/Logos/logo_arabesque.png" alt="Logo" width="300%"></a></td>
+        <td>ARABESQUE<br><span>Association de Modern'Jazz à Montagnat</span></td> 
+        <td width="30%"></td>
+      </tr>
+    </tbody>
+  </table> 
+<!--FIN EN-TETE-->
+
+<!--NAVIGATION-->
+  <nav>
+    <div class="bandeau">
+      <ul>
+        <li><a href="Arabesque_Accueil.html">Accueil</a></li>
+        <li><a href="Arabesque_Actus.html">Actus</a></li> 
+        <li><a href="Arabesque_Planning.html">Planning</a></li> 
+        <li><a href="Arabesque_Tarifs.html">Tarifs</a></li> 
+        <li><a href="Arabesque_Photos.html">Photos</a></li> 
+        <li><a href="Arabesque_Boutique.html">Boutique</a></li> 
+        <li><a href="Arabesque_Contact.html">Contact</a></li> 
+      </ul>
+    </div>
+  </nav>
+<!--FIN NAVIGATION-->
+
+
+  <div class="accueil">
+    <p>Bienvenue,<br>
+    L'association Arabesque propose des cours de danse Modern'Jazz pour les enfants (dès 3 ans), <br>
+    les adolescents et les adultes sur les communes de Montagnat et de Tossiat.<br>
+    Chaque semaine venez suivre votre cours de danse dans une ambiance conviviale et familiale.<br>
+    En plus des cours et du traditionnel spectacle de fin d'année, <br>
+    Arabesque organise tout au long de l’année plusieurs manifestations (Kids Party, Galette des rois, Canaval...)<br></p>
+    <p>A très bientôt !</p>  
+    <p>L'équipe d'Arabesque</p>
+  </div>
+
+<!--
+  <br>
+  <div class="ligne"></div>
+  <br>
+  <br>
+
+  <h2>Actualité<br>
+    <img src="./Photos/Logos/logo_arabesque.png" alt="Logo" width="50%"></a></td>
+  -->
+  
+  
+<!--DIAPORAMA PHOTOS SANS BOUTONS DEFILEMENT-->
+  <div class="slideshow-container">
+    <div class="slideshow-image">
+      <img src="./Photos/groupe9.png" alt="Groupe9">
+    </div>
+
+    <div class="slideshow-image">
+      <img src="./Photos/groupe8.png" alt="Groupe8">
+    </div>
+
+    <div class="slideshow-image">
+      <img src="./Photos/groupe7.png" alt="Groupe7">
+    </div>
+    <div class="slideshow-image">
+      <img src="./Photos/Groupe4.png" alt="Groupe4">
+    </div>
+    <div class="slideshow-image">
+      <img src="./Photos/groupe3.png" alt="Groupe3">
+    </div>
+    <div class="slideshow-image">
+      <img src="./Photos/groupe1.png" alt="groupe1">
+    </div>
+  </div>
+
+  <script>
+    var slideIndex = 0;
+    showSlide(slideIndex);
+
+    function changeSlide(n) {
+      showSlide(slideIndex += n);
+    }
+
+    function showSlide(n) {
+      var slides = document.getElementsByClassName("slideshow-image");
+      if (n >= slides.length) {
+        slideIndex = 0;
+      }
+      if (n < 0) {
+        slideIndex = slides.length - 1;
+      }
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex].style.display = "block";
+    }
+    setInterval(function() {changeSlide(1)}, 2000);
+  </script>
+<!--FIN DIAPORAMA PHOTOS SANS BOUTONS DEFILEMENT-->
+</body>
+
+
+<!--FOOTER-->
+<footer>
+  <div class="footer">
+      <p>A propos | Mentions légales | Politique de confidentialité<br>
+          Copyright © 2023 - Arabesque Ain</p>
+  </div>
+</footer>  
+<!--FIN FOOTER-->
+</html>
