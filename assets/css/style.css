@@ -1,0 +1,494 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F8F8FF;
+  color: #000000;
+
+}
+
+/*
+.ligne {
+  height: 2px; 
+  background-color: #1EC7F4; 
+  width: 50%;
+  margin: 0 auto; 
+}
+*/
+
+/*------------HEADER------------*/
+.header td:nth-child(1), .header td:nth-child(4)  {
+  text-align: center;
+  padding: 0;
+}
+.header td:nth-child(1) img, .header td:nth-child(4) img {
+  width: 400px;
+  height: 225px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ddd; 
+}
+.header td:nth-child(2) {
+  text-align: center;
+  padding: 0;
+  width: 10%;
+}
+.header td:nth-child(2) img {
+  width: 10%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.header td:nth-child(3) {
+  background-image: none;
+  font-size: 40px;
+  color: #000000;
+  width: auto;
+  padding: 0;
+  text-align: center;
+}
+
+
+.header p{
+  font-size: 20px;
+  white-space: nowrap;
+}
+.accueil{
+    margin: 0 auto;
+    text-align: center; 
+}
+
+
+.maintenance h2 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.maintenance p {
+  text-align: center;
+  font-size: 20px;
+}
+
+.header img {
+    width: 100%;      /* l'image prend toute la largeur de son conteneur */
+    max-width: 300px; /* limite la taille maximale */
+    height: auto;     /* conserve les proportions */
+}
+
+
+/*------------BANDEAU DE NAV------------*/
+.bandeau ul{
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #1EC7F4;
+  text-align: center;
+}
+.bandeau li {
+  display: inline-block; 
+  /* Pour aligner les noms à gauche : float: left;*/ 
+}
+.bandeau li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.bandeau li a:hover {
+  background-color: #a5e8fa;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    .maintenance h2 {
+        font-size: 1.2rem; /* réduit la taille des titres */
+    }
+
+    .maintenance p {
+        font-size: 0.9rem; /* réduit la taille du texte */
+    }
+
+    .maintenance img {
+        width: 80%;       /* réduit les images */
+    }
+
+    nav .bandeau ul li {
+        font-size: 0.9rem; /* réduit la taille des liens */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------BANDEAU DE NAV------------*/
+.bandeau ul{
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #1EC7F4;
+  text-align: center;
+}
+.bandeau li {
+  display: inline-block; 
+  /* Pour aligner les noms à gauche : float: left;*/ 
+}
+.bandeau li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.bandeau li a:hover {
+  background-color: #a5e8fa;
+}
+
+
+/*------------ACCUEIL------------*/
+.accueil p{
+  color: #000000;
+  font-size: 20px;
+}
+hr{
+  width: 100%;
+  height: 3px; /* Épaisseur de la ligne */
+  background-color: #1EC7F4; 
+  border: none;
+}
+.AccueilActu{
+  padding-left: 20px;
+  color :#000000;
+  font-size:20px;
+}
+.AccueilActu p{
+  color :#000000;
+  font-size:20px;
+}
+.TabAccueilActu {
+  width: 100%;
+}
+.TabAccueilActu img {
+  display: block; 
+  margin: 0 auto;
+  text-align: center;
+}
+.TabAccueilActu td {
+  padding: 10px; /* Espacement interne des cellules */
+}
+.TabAccueilActu img {
+  width: 50%; /* La largeur de l'image est de 100% de la cellule */
+  height: auto; /* Assurer que la hauteur est ajustée proportionnellement */
+  display: block; /* Supprimer l'espace réservé sous l'image */
+  margin-left: auto;
+  margin-right: 0;
+}
+.TabAccueilActu td:nth-child(2) {
+  width: 50%; /* Deuxième colonne occupe 50% de la largeur de la table */
+  text-align: left;
+  font-size: 25px;
+}
+.TabAccueilActu a{
+  color: #1EC7F4;
+  padding-left: 5px;
+}
+
+
+
+/*------------DIAPORAMA------------*/
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  width: 80%;
+  max-width: 800px;
+}
+.slideshox-container img {
+  display: inline-block;
+  width: 30%;
+  margin-right: 2%;
+}
+.slideshow-image {
+  display: none;
+  text-align: center;
+}
+.slideshow-image img {
+  max-width: 100%;
+  height: auto;
+}
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.prev {
+  left: 0;
+}
+.next {
+  right: 0;
+}
+
+
+/*------------ACTUS------------*/
+
+.manifs{
+  padding-left: 10px;
+  color :#000000;
+  font-size:20px;
+}
+.TManifs th, .TManifs td{
+  color: black;
+  height: 150px;
+  font-size:20px;
+}
+.TManifs{
+  padding-left: 75px;
+  border-spacing: 0 25px;
+}
+.TManifs td:nth-child(1){
+  background-color: #1EC7F4;
+  width: 125px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  border: solid 1px;
+}
+.TManifs td:nth-child(2){
+  width: 500px;
+  text-align: left;
+  font-size: 25px;
+  padding-left: 15px;
+  background-color: #6E6E6E;
+}
+
+
+/*------------BOUTIQUE------------*/
+.boutique h2{
+  padding-left: 10px;
+  color :#000000;
+  font-size:30px;
+}
+.boutique p{
+  padding-left: 25px;
+  color :#000000;
+  font-size:20px;
+}
+.boutique a{
+  padding-left: 25px;
+  color :#000000;
+  font-size:30px;
+}
+
+
+
+/*------------CONTACT------------*/
+.contact{
+  color: #000000;
+  text-align: center;
+  font-size: 20px;
+}
+.contact h1{
+  margin-left:5%
+}
+.contact p{
+  font-size: 20px;
+}
+.Tcontact th, .Tcontact td {
+  color: #000000;
+  font-size: 15px;
+  background: none;
+  text-align: center;
+  font-weight: bold;
+}
+.Tcontact td img {
+  display: flex;
+  margin: 0 auto;
+  vertical-align: bottom;
+}
+.Tcontact td p {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+}
+.Tcontact a {
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: top;
+}
+
+
+/*------------PHOTOS------------*/
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gallery img {
+  width: 25%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #888;
+}
+.main-photo {
+  position: relative;
+}
+.main-photo img {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.thumbnails img {
+  width: 100px;
+  height: 75px;
+  object-fit: cover;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.thumbnails img:last-child {
+  margin-right: 0;
+}
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.prev-btn {
+  left: 10px;
+}
+.next-btn {
+  right: 10px;
+}
+.album-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.album {
+  margin-bottom: 20px;
+  flex-direction: row;
+  display: flex; 
+}
+.album .cover {
+  height: 200px;
+  width: 200px; 
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  margin-right: 100px;
+}
+.album .title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: left;
+  padding-left: 21%;
+}
+.album-info {
+  display: flex;
+  flex-direction: column;
+}
+.album:last-child {
+  margin-right: 0;
+}
+
+
+/*------------PLANNING------------*/
+.planning{
+  text-align: center;    
+}
+
+
+/*------------TARIFS------------*/
+.tarifs{
+  text-align: center;    
+}
+
+
+/*------------FOOTER------------*/
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%; 
+  background-color: #333;
+  color: white;
+  text-align: center;
+  overflow: hidden;     
+}
