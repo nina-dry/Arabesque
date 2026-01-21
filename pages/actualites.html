@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Arabesque</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Import Tailwind CSS and DaisyUI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="navigation"></div>
+
+    <template id="card-template">
+      <div class="card w-80 bg-slate-100 text-black shadow-lg hover:shadow-xl transition-shadow">
+        <div class="card-body">
+          <h3 class="card-title justify-center text-sky-600 mb-1"></h3>
+          <div class="space-y-px">
+            <p class="description font-semibold text-lg"></p>
+            <p class="location text-base"></p>
+          </div>
+          <div class="card-actions justify-end mt-4">
+            <button class="btn bg-sky-500 hover:bg-sky-600 text-white border-none btn-sm shadow-none add-to-calendar">
+              Ajouter au calendrier
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </template>
+
+  <div id="cards-container" class="flex flex-wrap gap-6 justify-center p-6"></div>
+
+  <script>
+    const events = [
+      {
+        title: "30 Août",
+        description: "Permanence de rentrée",
+        location: "Mairie de Montagnat, 1er étage",
+        date: "2025-08-30",
+        time: "10:00"
+      },
+      {
+        title: "6 Septembre",
+        description: "Forum des associations",
+        location: "Centre festif de Ceyzériat\nSalle des fêtes de Tossiat",
+        date: "2025-09-06",
+        time: "10:00"
+      },
+      {
+        title: "11 Novembre",
+        description: "Kid's Party d'Halloween",
+        location: "Salle des fêtes de Montagnat",
+        date: "2025-11-01",
+        time: "15:00"
+      },
+      {
+        title: "11 Novembre",
+        description: "Assemblée générale",
+        location: "Salle des fêtes de Montagnat",
+        date: "2025-11-11",
+        time: "18:00"
+      },
+      {
+        title: "11 Décembre",
+        description: "Noël des associations",
+        location: "Montagnat",
+        date: "2025-12-11",
+        time: "17:00"
+      },
+      {
+        title: "24 janvier",
+        description: "Spectacle d'hiver",
+        location: "Salle des fêtes de Montagnat",
+        date: "2026-01-24",
+        time: "15:00"
+      },
+      {
+        title: "07 mars",
+        description: "Carnaval",
+        location: "Salle des fêtes de Montagnat",
+        date: "2026-03-07",
+        time: "15:00"
+      },
+      {
+        title: "30 mai",
+        description: "Matinée photos",
+        location: "Salle des fêtes de Montagnat",
+        date: "2026-05-30",
+        time: "09:00"
+      },
+      {
+        title: "20 juin",
+        description: "Spectacle de fin d'année",
+        location: "Auditorium de Péronnas",
+        date: "2026-06-20",
+        time: "16:00"
+      }
+    ];
+
+    
+    function formatDateForICS(dateStr, timeStr) {
+      const date = new Date(`${dateStr}T${timeStr}:00`);
+      return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    }
+
+    function createICSFile(event) {
+      const startDate = formatDateForICS(event.date, event.time);
+      const endDate = formatDateForICS(event.date, `${parseInt(event.time.split(':')[0]) + 2}:00`);
+      
+      const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Arabesque//Events//FR',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        `DTSTART:${startDate}`,
+        `DTEND:${endDate}`,
+        `SUMMARY:${event.description}`,
+        `DESCRIPTION:${event.description} - Arabesque`,
+        `LOCATION:${event.location}`,
+        `UID:${Date.now()}@arabesque.fr`,
+        'STATUS:CONFIRMED',
+        'SEQUENCE:0',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      return icsContent;
+      
+    }
+
+    function downloadICS(event) {
+      const icsContent = createICSFile(event);
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = `arabesque-${event.description.replace(/\s+/g, '-').toLowerCase()}.ics`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    const template = document.getElementById("card-template");
+    const container = document.getElementById("cards-container");
+
+    events.forEach(event => {
+      const card = template.content.cloneNode(true);
+
+      card.querySelector(".card-title").textContent = event.title;
+      card.querySelector(".description").textContent = event.description;
+      const locationElement = card.querySelector(".location");
+      locationElement.innerHTML = event.location.replace(/\n/g, '<br>');
+
+      const button = card.querySelector(".add-to-calendar");
+      button.addEventListener("click", () => downloadICS(event));
+
+      container.appendChild(card);
+    });
+
+
+  </script>
+
+  <script src="../assets/js/inject.js"></script>
+</body>
