@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Arabesque</title>
+  <link rel="stylesheet" type="text/css" href="../assets/css/styleCarousel.css">
+
+  <!-- Import Tailwind CSS and DaisyUI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div id="navigation"></div>
+
+  <div class="carousel-wrapper" data-carousel="maternelles"></div>
+  <div class="carousel-wrapper" data-carousel="primaires"></div>
+  <div class="carousel-wrapper" data-carousel="adosAdultes"></div>
+
+  <script src="../assets/js/carousels-data.js"></script>
+  <script src="../assets/js/inject.js"></script>
+  <script src="../assets/js/carousel.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Object.keys(window.carousels).forEach(categorie => {
+        injectCarousel(categorie);
+        initCarousel(categorie);
+      });
+    });
+  </script>
+</body>
+</html>
