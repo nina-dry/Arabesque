@@ -43,7 +43,7 @@ function injectCarousel(categorie) {
     }
 }
 
-function injecterVisionneuse() {
+function injectVisionneuse() {
   if (document.getElementById('img-visionneuse')) return;
   
   const visionneuse = document.createElement('div');
